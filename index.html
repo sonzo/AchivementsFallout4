@@ -23,6 +23,7 @@
     <meta name="twitter:description" content="Track all 84 Fallout 4 achievements across the base game and DLC." />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
     <style>
         body {
             padding: 2rem;
@@ -126,13 +127,64 @@
             flex: 1;
             margin: 0;
         }
+
+        .info-icon {
+            position: relative;
+            display: inline-block;
+            margin-left: 0.4rem;
+            cursor: help;
+            color: #4a9eff;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .info-icon .tooltip-box {
+            visibility: hidden;
+            opacity: 0;
+            width: 270px;
+            background: var(--pico-card-background-color);
+            border: 1px solid var(--pico-muted-border-color);
+            color: var(--pico-color);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            border-radius: var(--pico-border-radius);
+            padding: 0.7rem 0.9rem;
+            position: absolute;
+            z-index: 100;
+            top: 140%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.18s;
+            pointer-events: none;
+            text-align: left;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .info-icon:hover .tooltip-box,
+        .info-icon:focus .tooltip-box {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body>
     <main class="container">
         <h1>⚡ Fallout 4 Achievements</h1>
-        <p class="subtitle">Track your progress across the Commonwealth</p>
+        <p class="subtitle">Track your progress across the Commonwealth
+            <span class="info-icon" tabindex="0" role="img" aria-label="How to use">
+                &#9432;
+                <span class="tooltip-box">
+                    <strong>How to use</strong><br>
+                    Click an achievement to mark it as completed.<br><br>
+                    Your progress is saved automatically in your browser's local storage — no account or internet
+                    needed.<br><br>
+                    Use the search bar to filter by name.<br>
+                    <em>Check all</em> marks everything done; <em>Clear all</em> resets your progress.
+                </span>
+            </span>
+        </p>
 
         <div class="progress-bar-wrap">
             <progress id="progress" max="84" value="0"></progress>
